@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Feed from './components/Feed';
 import './App.css';
-
-let articleKey: number = 0;
 
 const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
@@ -15,18 +14,8 @@ const App: React.FC = () => {
       .catch(err => console.error(err));
   }, []);
 
-  console.log(articles);
   return (
-    <div className="App">
-      {articles?.map((article) => {
-        articleKey ++;
-        return (
-          <div key={articleKey}>
-            {article.title}
-          </div>
-        )
-      })}
-    </div>
+    <Feed articles={articles}/>
   );
 }
 
