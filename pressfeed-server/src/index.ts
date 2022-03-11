@@ -6,7 +6,7 @@ const PORT: number = 8000;
 
 app.get('/', async (req, res) => {
   let responseData = await getStories(req.query.section, NYT_API_KEY);
-  res.send(responseData);
+  res.header('Access-Control-Allow-Origin', '*').status(200).send(responseData);
 });
 
 app.listen(PORT, () => {
