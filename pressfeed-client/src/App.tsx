@@ -3,6 +3,7 @@ import axios from "axios";
 import Feed from "./components/Feed";
 import { AppBar, Toolbar, IconButton, Typography, CssBaseline} from "@mui/material";
 import { Newspaper } from '@mui/icons-material'
+import './styles/App.css'
 
 import useStyles from './styles/styles';
 

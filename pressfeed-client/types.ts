@@ -5,3 +5,8 @@ export interface Props {
 export interface Styles {
   container: object
 }
+
+export interface ArticleProps {
+  article: object,
+  key: number
+}
