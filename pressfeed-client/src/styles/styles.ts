@@ -1,14 +1,20 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-
-
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
-    padding: "20px"
+    position: "relative",
+    paddingTop: "3%",
+    float: "right",
+    maxHeight: "100vh",
+    overflow: "scroll"
   },
   icon: {
-    marginRight: '20px'
+    padding: "5%",
+    fontWeight: "900"
+  },
+  appbar: {
+    position: "relative",
   },
   title: {
     padding: "2%",
@@ -17,16 +23,21 @@ const useStyles = makeStyles((theme: Theme) => ({
   articleDate: {
     fontSize: "small",
     marginTop: "0",
-    marginLeft: "1%"
+    marginLeft: "2%"
   },
   cards: {
     maxHeight: "450px",
-    overflowY: "scroll"
   },
   cardMedia: {
     width: "90%",
     padding: "2%",
     borderRadius: "10px"
+  },
+  drawer: {
+    width: "240px",
+  },
+  drawerPaper: {
+    width: "240px"
   }
 }));
 
