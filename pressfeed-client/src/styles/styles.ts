@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: '20px'
   },
   title: {
-    padding: "2%"
+    padding: "2%",
+    fontWeight: "900"
   },
   articleDate: {
     fontSize: "small",
@@ -19,10 +20,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: "1%"
   },
   cards: {
-    maxHeight: "400px",
+    maxHeight: "450px",
+    overflowY: "scroll"
   },
-  cardContent: {
-    overflow: "scroll"
+  cardMedia: {
+    width: "90%",
+    padding: "2%",
+    borderRadius: "10px"
   }
 }));
 

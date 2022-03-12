@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { ArticleProps } from '../../types';
-import { Card, CardMedia, CardContent, Typography, Grid, Link } from '@mui/material'
+import { Card, CardMedia, CardContent, Typography, Grid, Button } from '@mui/material'
 
 import useStyles from '../styles/styles';
 
@@ -24,13 +24,14 @@ const Article: React.FC<ArticleProps> = ({article}:any, {articleKey}) => {
         height="140"
         image={article.multimedia[0].url}
         alt={article.multimedia[0].caption}
+        className={classes.cardMedia}
         />
         <p className={classes.articleDate}>{articleDate} {byline}</p>
-        <CardContent className={classes.cardContent}>
+        <CardContent>
           <Typography gutterBottom variant='h6'>
             {article.abstract}
           </Typography>
-          <Link component="button" variant="body1" href={article.short_url}>Read more...</Link>
+          <Button variant="contained" href={article.short_url} target="_blank">Read more...</Button>
         </CardContent>
       </Card>
     </Grid>
