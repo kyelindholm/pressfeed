@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Card, CardMedia, CardContent, Typography, Button } from '@mui/material'
+import { Card, CardMedia, CardContent, Typography, Button, Grid } from '@mui/material'
 
 interface Props {
   article: object,
@@ -12,14 +12,22 @@ const Article: React.FC<Props> = ({article}:any, {articleKey}) => {
 
   console.log(article);
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-       component="img"
-       height="140"
-       image={article.multimedia[0].url}
-       alt={article.multimedia[0].caption}
-      />
-    </Card>
+    <Grid item>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+        component="img"
+        height="140"
+        image={article.multimedia[0].url}
+        alt={article.multimedia[0].caption}
+        />
+        <CardContent>
+          <Typography gutterBottom variant='h6'>
+            {article.abstract}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+
   )
 };
 

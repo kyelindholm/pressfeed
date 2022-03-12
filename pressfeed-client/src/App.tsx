@@ -4,8 +4,11 @@ import Feed from "./components/Feed";
 import { AppBar, Toolbar, IconButton, Typography, CssBaseline} from "@mui/material";
 import { Newspaper } from '@mui/icons-material'
 
+import useStyles from './styles/styles';
+
 const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
+  const classes = useStyles();
 
   useEffect(() => {
     axios
@@ -26,6 +29,7 @@ const App: React.FC = () => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            className={classes.icon}
           >
             <Newspaper />
           </IconButton>
