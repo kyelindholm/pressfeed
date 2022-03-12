@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   drawerPaper: {
     width: "240px"
+  },
+  active: {
+    background: "#f4f4f4"
   }
 }));
 
