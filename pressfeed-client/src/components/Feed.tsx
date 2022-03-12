@@ -13,7 +13,7 @@ const Feed: React.FC<Props> = ({articles}) => {
   if (articles !== undefined) {
     return (
       <Container maxWidth="md" className={classes.container}>
-        <Grid container spacing={4} className={classes.container}>
+        <Grid container spacing={6} className={classes.container}>
         {articles.map((article) => {
           articleKey ++;
           return (
