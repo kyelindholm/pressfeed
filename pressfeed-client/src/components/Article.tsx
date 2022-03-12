@@ -12,10 +12,9 @@ const Article: React.FC<ArticleProps> = ({article}:any, {articleKey}) => {
 
   const byline = article.byline.length > 0 ? "| " + article.byline : "";
 
-  console.log(article);
   return (
     <Grid item>
-      <Card sx={{ maxWidth: 250 }} variant="outlined">
+      <Card sx={{ maxWidth: 325 }} variant="outlined">
         <Typography variant='h5' className={classes.title}>
           {article.title}
         </Typography>
@@ -35,7 +34,6 @@ const Article: React.FC<ArticleProps> = ({article}:any, {articleKey}) => {
         </CardContent>
       </Card>
     </Grid>
-
   )
 };
 
