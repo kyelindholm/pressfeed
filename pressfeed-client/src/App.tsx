@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Feed from './components/Feed';
+import {Button} from '@mui/material';
 import './App.css';
+
+
 
 const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
@@ -15,7 +18,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Feed articles={articles}/>
+    <div>
+      <Feed articles={articles}/>
+      <Button>Hi</Button>
+    </div>
   );
 }
 

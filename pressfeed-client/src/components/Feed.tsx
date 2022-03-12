@@ -8,7 +8,6 @@ interface Props {
 let articleKey: number = 0;
 
 const Feed: React.FC<Props> = ({articles}) => {
-  console.log(articles);
   if (articles !== undefined) {
     return (
       <div>
