@@ -9,6 +9,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     marginRight: '20px'
+  },
+  title: {
+    padding: "2%"
+  },
+  articleDate: {
+    fontSize: "small",
+    marginTop: "0",
+    marginLeft: "1%"
+  },
+  cards: {
+    maxHeight: "400px",
+  },
+  cardContent: {
+    overflow: "scroll"
   }
 }));
 
