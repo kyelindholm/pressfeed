@@ -11,7 +11,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   icon: {
     padding: "5%",
-    fontWeight: "900"
+    fontWeight: "900",
+    color: "#2074d4",
+    textAlign: "center"
   },
   appbar: {
     position: "relative",
