@@ -1,18 +1,19 @@
 import React from 'react';
 import Article from './Article';
+import {Props} from '../../types'
 import { Container, Grid } from '@mui/material'
 
-interface Props {
-  articles: Array<any> | void | undefined
-}
+import useStyles from '../styles/styles';
 
 let articleKey: number = 0;
 
 const Feed: React.FC<Props> = ({articles}) => {
+  const classes = useStyles();
+
   if (articles !== undefined) {
     return (
-      <Container maxWidth="md">
-        <Grid container spacing={4}>
+      <Container maxWidth="md" className={classes.container}>
+        <Grid container spacing={4} className={classes.container}>
         {articles.map((article) => {
           articleKey ++;
           return (
