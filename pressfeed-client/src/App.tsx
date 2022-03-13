@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Feed from "./components/Feed";
 import Appbar from "./components/Appbar";
 import Menu from "./components/Menu";
+import refreshFeed from "./api-routes/routes"
 import {CssBaseline} from "@mui/material";
 import './styles/App.css'
 
@@ -10,20 +10,29 @@ const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/")
-      .then((data) => {
-        setArticles(data.data);
-      })
-      .catch((err) => console.error(err));
+    const getData = async () => {
+      const data = await refreshFeed('Home');
+      setArticles(data.data);
+    }
+    getData();
   }, []);
+
+  const newMenuProps = {
+    handleUpdateFeed: (section: string):void => {
+      refreshFeed(section)
+        .then(data => {
+          setArticles(data.data);
+        })
+        .catch(err => {throw err;});
+    }
+  }
 
   return (
     <div>
       <CssBaseline/>
       <Appbar/>
       <main>
-        <Menu/>
+        <Menu {...newMenuProps}/>
         <Feed articles={articles} />
       </main>
     </div>

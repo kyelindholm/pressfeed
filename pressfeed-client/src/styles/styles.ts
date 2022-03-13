@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   articleDate: {
     fontSize: "small",
     marginTop: "0",
-    marginLeft: "2%"
+    marginLeft: "2%",
+    marginRight: "2%"
   },
   cards: {
     maxHeight: "450px",
@@ -40,9 +41,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   drawerPaper: {
     width: "240px"
-  },
-  active: {
-    background: "#f4f4f4"
   }
 }));
 

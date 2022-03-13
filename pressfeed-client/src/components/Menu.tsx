@@ -3,13 +3,16 @@ import React, {useState} from "react";
 import menuItems from "../constants/constants";
 import useStyles from "../styles/styles";
 
-const Menu: React.FC = () => {
+const Menu: React.FC<any> = ({handleUpdateFeed}) => {
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = useState(1);
 
-  const buttonProps = (value: number) => ({
+  const buttonProps = (value: number, item: any) => ({
     selected: selectedIndex === value,
-    onClick: () => setSelectedIndex(value)
+    onClick: () => {
+      setSelectedIndex(value);
+      handleUpdateFeed(item.text);
+    }
   });
 
   let buttonCounter: number = 0;
@@ -33,7 +36,7 @@ const Menu: React.FC = () => {
         {menuItems.map((item) => {
           buttonCounter ++;
           return (
-            <ListItemButton key={item.text} {...buttonProps(buttonCounter)}>
+            <ListItemButton key={item.text} {...buttonProps(buttonCounter, item)} id={item.text}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text}/>
             </ListItemButton>
