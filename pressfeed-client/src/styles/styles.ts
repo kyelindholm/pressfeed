@@ -22,9 +22,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
   articleDate: {
     fontSize: "small",
-    marginTop: "0",
-    marginLeft: "2%",
-    marginRight: "2%"
+    margin: "0 2% 0 2%"
   },
   cards: {
     maxWidth: "300px",
