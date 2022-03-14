@@ -11,4 +11,8 @@ export interface ArticleProps {
   key: number
 }
 
+export interface AppbarProps {
+  filterFeed: any
+}
+
 

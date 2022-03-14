@@ -5,8 +5,9 @@ import Box from '@mui/material/Box';
 import {Toolbar, Typography} from '@mui/material';
 import SearchBar from './SearchBar'
 
+import { AppbarProps } from '../../types';
 
-const Menu: React.FC = () => {
+const Menu: React.FC<AppbarProps> = ({filterFeed}) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -18,7 +19,7 @@ const Menu: React.FC = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
           </Typography>
-          <SearchBar/>
+          <SearchBar filterFeed={filterFeed}/>
         </Toolbar>
       </AppBar>
     </Box>

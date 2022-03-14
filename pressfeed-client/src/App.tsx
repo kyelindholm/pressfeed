@@ -8,6 +8,8 @@ import './styles/App.css'
 
 const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
+  const [filteredArticles, setFilteredArticles] = useState<Array<any>>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -27,13 +29,20 @@ const App: React.FC = () => {
     }
   }
 
+  const feedProps = {
+    filterFeed: (term: string) => {
+      setSearchTerm(term);
+      setFilteredArticles(articles.filter(article => article.title.toLowerCase().includes(term.toLowerCase())));
+    }
+  }
+
   return (
     <div>
       <CssBaseline/>
-      <Appbar/>
+      <Appbar {...feedProps}/>
       <main>
         <Menu {...newMenuProps}/>
-        <Feed articles={articles} />
+        <Feed articles={searchTerm.length >= 3 ? filteredArticles : articles} />
       </main>
     </div>
   );
