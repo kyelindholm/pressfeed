@@ -1,6 +1,6 @@
 import express from 'express';
 const { getStories } = require('../controllers/getStories');
-const NYT_API_KEY: string = require('../../config.ts').NYT_API_KEY;
+const {NYT_API_KEY} = require('../../config.ts');
 const app = express();
 const PORT: number = 8000;
 

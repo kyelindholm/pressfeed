@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingTop: "3%",
     float: "right",
     maxHeight: "100vh",
-    overflow: "scroll"
+    overflow: "scroll",
   },
   icon: {
     padding: "5%",
@@ -18,10 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   appbar: {
     position: "relative",
   },
-  title: {
-    padding: "2%",
-    fontWeight: "900"
-  },
   articleDate: {
     fontSize: "small",
     marginTop: "0",
@@ -29,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginRight: "2%"
   },
   cards: {
-    maxHeight: "450px",
+    maxWidth: "300px",
   },
   cardMedia: {
     width: "90%",
