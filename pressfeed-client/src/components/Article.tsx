@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 
-import useStyles from "../styles/styles";
+import {useStyles} from "../styles/styles";
 
 const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
   const articleDate = moment(article.published_date).format("MM/DD/YYYY");

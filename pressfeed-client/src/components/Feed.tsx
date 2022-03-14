@@ -3,7 +3,7 @@ import Article from './Article';
 import {Props} from '../../types'
 import { Container, Grid } from '@mui/material'
 
-import useStyles from '../styles/styles';
+import {useStyles} from '../styles/styles';
 
 let articleKey: number = 0;
 
