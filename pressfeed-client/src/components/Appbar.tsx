@@ -1,22 +1,29 @@
-import {AppBar, Toolbar, Typography} from "@mui/material";
-import React from "react";
 
-import useStyles from "../styles/styles";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import {Toolbar, Typography} from '@mui/material';
+import SearchBar from './SearchBar'
 
 
-const Appbar: React.FC = () => {
-  const classes = useStyles();
-
+const Menu: React.FC = () => {
   return (
-    <AppBar position="static" className={classes.appbar} style={{ zIndex: 1301 }}>
-        <Toolbar variant="dense">
-          <Typography variant="h4" color="inherit" component="div">
-            Pressfeed
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
           </Typography>
+          <SearchBar/>
         </Toolbar>
       </AppBar>
-  )
+    </Box>
+  );
 }
 
-export default Appbar;
+export default Menu;
 
