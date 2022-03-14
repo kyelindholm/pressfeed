@@ -22,8 +22,8 @@ const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
 
   return (
     <Grid item xs="auto">
-      <Card sx={{ maxWidth: 300 }} variant="outlined">
-        <Typography variant="h5" className={classes.title}>
+      <Card variant="outlined" className={classes.cards}>
+        <Typography variant="h5" style={{fontWeight: "bold", padding: "2%"}}>
           {article.title}
         </Typography>
         <CardMedia
