@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     margin: "0 2% 0 2%"
   },
   cards: {
-    maxWidth: "300px",
+    maxWidth: "22vw",
   },
   cardMedia: {
     width: "95%",
@@ -34,10 +34,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: "10px",
   },
   drawer: {
-    width: "240px",
+    width: "18vw",
   },
   drawerPaper: {
-    width: "240px"
+    width: "18vw"
   },
   searchbar: {
     zIndex: "10000",
