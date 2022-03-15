@@ -10,7 +10,8 @@ let articleKey: number = 0;
 const Feed: React.FC<Props> = ({articles}) => {
   const classes = useStyles();
 
-  if (articles !== undefined) {
+  console.log(articles);
+  if (articles !== undefined && articles.length > 0) {
     return (
       <Container maxWidth="lg" className={classes.container}>
         <Grid container spacing={6} columns={3} style={{paddingLeft: "5%"}}>
@@ -24,7 +25,7 @@ const Feed: React.FC<Props> = ({articles}) => {
       </Container>
     )
   } else {
-    return <div/>;
+    return <div style={{textAlign: "center"}}>No article titles found matching given search term!</div>;
   }
 };
 

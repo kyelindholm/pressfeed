@@ -13,7 +13,7 @@ const SearchBar: React.FC<AppbarProps> = ({filterFeed}) => {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search…"
+        placeholder="Search..."
         inputProps={{ "aria-label": "search" }}
         onChange={(e) => {
           filterFeed(e.target.value);
