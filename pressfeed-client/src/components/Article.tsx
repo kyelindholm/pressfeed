@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { ArticleProps } from "../../types";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import {
   Card,
   CardMedia,
@@ -8,6 +9,7 @@ import {
   Typography,
   Grid,
   Button,
+  Checkbox
 } from "@mui/material";
 
 import {useStyles} from "../styles/styles";
@@ -43,6 +45,7 @@ const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
           <Button variant="contained" href={article.short_url} target="_blank">
             Read more...
           </Button>
+          <Checkbox icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}}/>
         </CardContent>
       </Card>
     </Grid>
