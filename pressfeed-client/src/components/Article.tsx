@@ -22,6 +22,9 @@ const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
   const photo: string = article.multimedia !== null ? article.multimedia[0].url : "https://demofree.sirv.com/nope-not-here.jpg";
   const caption: string = article.multimedia !== null ? article.multimedia[0].caption : "cannot load caption";
 
+  const checkboxLabel = { inputProps: { 'aria-label': 'Add-article-to-favorites checkbox' } };
+
+
   return (
     <Grid item xs="auto">
       <Card variant="outlined" className={classes.cards}>
@@ -45,7 +48,7 @@ const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
           <Button variant="contained" href={article.short_url} target="_blank">
             Read more...
           </Button>
-          <Checkbox icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}}/>
+          <Checkbox {...checkboxLabel} icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}} id={article.short_url}/>
         </CardContent>
       </Card>
     </Grid>
