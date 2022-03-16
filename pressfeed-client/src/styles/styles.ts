@@ -38,10 +38,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
   drawerPaper: {
     width: "18vw"
-  },
-  searchbar: {
-    zIndex: "10000",
-    float: "right"
   }
 }));
 
