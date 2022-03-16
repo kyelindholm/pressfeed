@@ -10,7 +10,6 @@ let articleKey: number = 0;
 const Feed: React.FC<Props> = ({articles}) => {
   const classes = useStyles();
 
-  console.log(articles);
   if (articles !== undefined && articles.length > 0) {
     return (
       <Container maxWidth="lg" className={classes.container}>

@@ -25,9 +25,11 @@
     "@mui/material": "^5.5.0",
     "@mui/styles": "^5.5.0",
     "@types/material-ui": "^0.21.12",
+    "@types/pg": "^8.6.5",
     "axios": "^0.26.1",
     "express": "^4.17.3",
     "moment": "^2.29.1",
+    "pg": "^8.7.3",
     "react-error-boundary": "^3.1.4"
   }
 }
