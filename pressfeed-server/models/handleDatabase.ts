@@ -1,19 +1,19 @@
-const addToDatabase = (article: any) => {
-  const articleObject = {
-    title: article.title,
-    byline: article.byline,
-    abstract: article.abstract,
-    shorturl: article.short_url,
-    imgurl: article.multimedia[0].url,
-    caption: article.multimedia[0].caption,
-    publishdate: article.published_date
-  };
+import client from '../../database';
 
-  console.log(articleObject);
+const addToDatabase = (article: any) => {
+  client.query(`INSERT INTO favorites (title, byline, abstract, shorturl, imgurl, caption, publishdate) VALUES ('${article.title}', '${article.byline}', '${article.abstract}', '${article.short_url}', '${article.multimedia[0].url}', '${article.multimedia[0].caption}', '${article.published_date}')`)
+    .then(() => {
+      console.log('Article added to favorites!')
+    })
+    .catch((err: Error) => { console.error(err); });
 }
 
 const removeFromDatabase = (url: string) => {
-  console.log(url);
+  client.query(`DELETE FROM favorites WHERE shorturl='${url}'`)
+    .then(() => {
+      console.log('Article deleted from favorites!');
+    })
+    .catch((err: Error) => { console.error(err); });
 }
 
 module.exports = { addToDatabase, removeFromDatabase }

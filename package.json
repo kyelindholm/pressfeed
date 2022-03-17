@@ -31,6 +31,7 @@
     "express": "^4.17.3",
     "moment": "^2.29.1",
     "pg": "^8.7.3",
-    "react-error-boundary": "^3.1.4"
+    "react-error-boundary": "^3.1.4",
+    "ts-postgres": "^1.2.1"
   }
 }
