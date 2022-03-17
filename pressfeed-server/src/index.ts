@@ -1,5 +1,6 @@
 import express from 'express';
-const { getStories } = require('../controllers/getStories');
+const { getStories } = require('../models/getStories');
+const { addToDatabase, removeFromDatabase } = require('../models/handleDatabase');
 const {NYT_API_KEY} = require('../../config.ts');
 const app = express();
 const PORT: number = 8000;
@@ -14,16 +15,20 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/refreshfeed', async (req, res) => {
   const responseData = await getStories(req.query.section, NYT_API_KEY);
-  res.status(200).send(responseData);
+  if (responseData) {
+    res.status(200).send(responseData);
+  } else {
+    res.status(400).send();
+  }
 });
 
 app.post('/add', (req, res) => {
-  console.log("add", req.body);
+  addToDatabase(req.body.data);
   res.status(200).send('Success');
 })
 
 app.post('/remove', (req, res) => {
-  console.log("remove", req.body);
+  removeFromDatabase(req.body.data.short_url);
   res.status(200).send('Success');
 })
 
