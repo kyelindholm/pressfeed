@@ -3,7 +3,7 @@ import Feed from "./components/Feed";
 import Appbar from "./components/Appbar";
 import Menu from "./components/Menu";
 import RadioButtons from "./components/RadioButtons";
-import refreshFeed from "./api-routes/routes";
+import {refreshFeed, addToDatabase, removeFromDatabase} from "./api-routes/routes";
 import { CssBaseline } from "@mui/material";
 import "./styles/App.css";
 
@@ -45,10 +45,10 @@ const App: React.FC = () => {
 
   const articleFunctions = {
     addToFavorites: (id: string) => {
-      console.log('APP add', id);
+      addToDatabase(articles.filter((article) => article.short_url === id)[0]);
     },
     removeFromFavorites: (id: string) => {
-      console.log('APP rm', id);
+      removeFromDatabase(articles.filter((article) => article.short_url === id)[0]);
     }
   }
 

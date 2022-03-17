@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import moment from "moment";
 import { ArticleProps } from "../../types";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
@@ -18,11 +18,13 @@ const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions
   const [checked, setChecked] = useState(false);
   const [articleId, setArticleId] = useState('');
 
-  useEffect(() => {
-    checked ? articleFunctions.addToFavorites(articleId) : articleFunctions.removeFromFavorites(articleId);
-  }, [articleId, checked, articleFunctions])
-
-
+  const firstUpdate = useRef(true);
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      checked ? articleFunctions.addToFavorites(articleId) : articleFunctions.removeFromFavorites(articleId);
+      return;
+    }
+  })
 
   const articleDate = moment(article.published_date).format("MM/DD/YYYY");
   const classes = useStyles();
