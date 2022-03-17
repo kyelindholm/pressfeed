@@ -18,11 +18,14 @@ const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions
   const [checked, setChecked] = useState(false);
   const [articleId, setArticleId] = useState('');
 
-  const firstUpdate = useRef(true);
+
+  const firstUpdate = useRef(false);
   useLayoutEffect(() => {
     if (firstUpdate.current) {
       checked ? articleFunctions.addToFavorites(articleId) : articleFunctions.removeFromFavorites(articleId);
       return;
+    } else {
+      firstUpdate.current = true;
     }
   })
 
