@@ -7,7 +7,7 @@ import {useStyles} from '../styles/styles';
 
 let articleKey: number = 0;
 
-const Feed: React.FC<Props> = ({articles}) => {
+const Feed: React.FC<Props> = ({articles, articleFunctions}) => {
   const classes = useStyles();
 
   if (articles !== undefined && articles.length > 0) {
@@ -17,7 +17,7 @@ const Feed: React.FC<Props> = ({articles}) => {
         {articles.map((article) => {
           articleKey ++;
           return (
-            <Article article={article} key={articleKey}/>
+            <Article article={article} key={articleKey} articleFunctions={articleFunctions}/>
           )
         })}
         </Grid>

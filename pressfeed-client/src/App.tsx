@@ -3,7 +3,7 @@ import Feed from "./components/Feed";
 import Appbar from "./components/Appbar";
 import Menu from "./components/Menu";
 import RadioButtons from "./components/RadioButtons";
-import refreshFeed from "./api-routes/routes";
+import {refreshFeed, addToDatabase, removeFromDatabase} from "./api-routes/routes";
 import { CssBaseline } from "@mui/material";
 import "./styles/App.css";
 
@@ -43,6 +43,15 @@ const App: React.FC = () => {
     },
   };
 
+  const articleFunctions = {
+    addToFavorites: (id: string) => {
+      addToDatabase(articles.filter((article) => article.short_url === id)[0]);
+    },
+    removeFromFavorites: (id: string) => {
+      removeFromDatabase(articles.filter((article) => article.short_url === id)[0]);
+    }
+  }
+
   return (
     <div>
       <CssBaseline />
@@ -50,7 +59,7 @@ const App: React.FC = () => {
       <main>
         <Menu {...newMenuProps} />
         <RadioButtons/>
-        <Feed articles={searchTerm.length >= 3 ? filteredArticles : articles} />
+        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : articles}/>
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useLayoutEffect, useRef } from "react";
 import moment from "moment";
 import { ArticleProps } from "../../types";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
@@ -14,7 +14,18 @@ import {
 
 import {useStyles} from "../styles/styles";
 
-const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
+const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions }: any) => {
+  const [checked, setChecked] = useState(false);
+  const [articleId, setArticleId] = useState('');
+
+  const firstUpdate = useRef(true);
+  useLayoutEffect(() => {
+    if (firstUpdate.current) {
+      checked ? articleFunctions.addToFavorites(articleId) : articleFunctions.removeFromFavorites(articleId);
+      return;
+    }
+  })
+
   const articleDate = moment(article.published_date).format("MM/DD/YYYY");
   const classes = useStyles();
   const byline = article.byline.length > 0 ? "| " + article.byline : "";
@@ -48,7 +59,9 @@ const Article: React.FC<ArticleProps> = ({ article }: any, { articleKey }) => {
           <Button variant="contained" href={article.short_url} target="_blank">
             Read more...
           </Button>
-          <Checkbox {...checkboxLabel} icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}} id={article.short_url}/>
+          <Checkbox {...checkboxLabel} icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}} id={article.short_url} onChange={() => {setChecked(!checked);}} onClick={(e) => {
+            setArticleId((e.target as HTMLInputElement).id);
+          }}/>
         </CardContent>
       </Card>
     </Grid>
