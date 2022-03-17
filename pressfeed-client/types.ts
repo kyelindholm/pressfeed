@@ -1,5 +1,6 @@
 export interface Props {
-  articles: Array<any> | void | undefined
+  articles: Array<any> | void | undefined,
+  articleFunctions: object
 }
 
 export interface Styles {
@@ -8,7 +9,8 @@ export interface Styles {
 
 export interface ArticleProps {
   article: object,
-  key: number
+  key: number,
+  articleFunctions: object
 }
 
 export interface AppbarProps {

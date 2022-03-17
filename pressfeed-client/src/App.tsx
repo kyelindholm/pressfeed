@@ -43,6 +43,15 @@ const App: React.FC = () => {
     },
   };
 
+  const articleFunctions = {
+    addToFavorites: (id: string) => {
+      console.log('APP add', id);
+    },
+    removeFromFavorites: (id: string) => {
+      console.log('APP rm', id);
+    }
+  }
+
   return (
     <div>
       <CssBaseline />
@@ -50,7 +59,7 @@ const App: React.FC = () => {
       <main>
         <Menu {...newMenuProps} />
         <RadioButtons/>
-        <Feed articles={searchTerm.length >= 3 ? filteredArticles : articles} />
+        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : articles}/>
       </main>
     </div>
   );
