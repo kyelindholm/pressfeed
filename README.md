@@ -5,6 +5,8 @@
 ## About:
 An application designed to amalgamate the news. Powered by the New York Times, Pressfeed allows users to filter recent top news articles by section, search through the rendered feed based on keywords in article titles, and save articles as favorites for further reading! Pressfeed is broken up into an MVC architecture pattern to ensure appropriate separation of concern.
 
+<hr/>
+
 ## File Structure:
 ```
 ├── README.md
@@ -46,6 +48,9 @@ An application designed to amalgamate the news. Powered by the New York Times, P
 │       └── index.ts
 └── tsconfig.json
 ```
+
+<hr/>
+
 ## Technologies:
 
 <table align="center">
@@ -91,11 +96,31 @@ An application designed to amalgamate the news. Powered by the New York Times, P
   </tbody>
 </table>
 
+<hr/>
+
 ## Components:
 - Appbar/Searchbar: The header of the project! Allows the user to filter the currently rendered feed based on article titles - this render is automatic once a search term three characters or longer is provided by the user
 
+<p align="center">
+  <img src="https://imgur.com/7kadKBK" alt="animated" />
+</p>
+
 - Menu: Articles are rendered based on their category, and the user selects a category via the menu. The default "Home" category will provide articles from a variety of categories that have been popular lately, but other categories include "Politics", "Technology", and "Arts" to name a few
+
+<p align="center">
+  <img src="https://imgur.com/AkfGPTH" alt="animated" />
+</p>
 
 - Feed/Article: The "press" and "feed" in Pressfeed! News articles are rendered as individual card components within a feed. Each article card displays the article's title, a primary image, the article's byline, and a brief summary of the article. The user has the option to navigate to the original article via the New York Times or add this article to their favorites!
 
+<p align="center">
+  <img src="https://imgur.com/GzHtxQR" alt="animated" />
+</p>
+
 - Radio Buttons: "Feed" and "Favorites" radio buttons allow the user to choose whether the feed should render current news articles or articles that they added to their favorites
+
+<p align="center">
+  <img src="https://imgur.com/TUVQgYz" alt="animated" />
+</p>
+
+<hr/>
