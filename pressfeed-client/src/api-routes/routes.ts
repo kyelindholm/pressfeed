@@ -16,4 +16,9 @@ export const removeFromDatabase = async (article: object) => {
   return response;
 }
 
+export const getFavorites = async () => {
+  const response = await axios.get(`http://localhost:8000/favorites`);
+  return response.data;
+}
+
 

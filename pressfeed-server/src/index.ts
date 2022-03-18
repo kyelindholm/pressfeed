@@ -1,6 +1,6 @@
 import express from 'express';
 const { getStories } = require('../models/getStories');
-const { addToDatabase, removeFromDatabase } = require('../models/handleDatabase');
+const { addToDatabase, removeFromDatabase, getFavorites } = require('../models/handleDatabase');
 const {NYT_API_KEY} = require('../../config.ts');
 const app = express();
 const PORT: number = 8000;
@@ -20,6 +20,26 @@ app.get('/refreshfeed', async (req, res) => {
   } else {
     res.status(400).send();
   }
+});
+
+app.get('/favorites', async (req, res) => {
+  const responseData = await getFavorites();
+
+  const responseObject = responseData.rows.map((article: Array<any>) => {
+    return (
+      {
+        "id": article[0],
+        "title": article[1],
+        "byline": article[2],
+        "abstract": article[3],
+        "shorturl": article[4],
+        "multimedia": [{"url": article[5], "caption": article[6]}],
+        "publishdate": article[7]
+      }
+    )
+  });
+
+  res.status(200).send(responseObject);
 });
 
 app.post('/add', (req, res) => {
