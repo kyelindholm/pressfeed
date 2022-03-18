@@ -102,25 +102,25 @@ An application designed to amalgamate the news. Powered by the New York Times, P
 - Appbar/Searchbar: The header of the project! Allows the user to filter the currently rendered feed based on article titles - this render is automatic once a search term three characters or longer is provided by the user
 
 <p align="center">
-  <img src="https://imgur.com/7kadKBK" alt="animated" />
+  <img src="https://i.imgur.com/7kadKBK.png" alt="Pressfeed searchbar functionality" />
 </p>
 
 - Menu: Articles are rendered based on their category, and the user selects a category via the menu. The default "Home" category will provide articles from a variety of categories that have been popular lately, but other categories include "Politics", "Technology", and "Arts" to name a few
 
 <p align="center">
-  <img src="https://imgur.com/AkfGPTH" alt="animated" />
+  <img src="https://i.imgur.com/AkfGPTH.png" alt="Pressfeed menu functionality" />
 </p>
 
 - Feed/Article: The "press" and "feed" in Pressfeed! News articles are rendered as individual card components within a feed. Each article card displays the article's title, a primary image, the article's byline, and a brief summary of the article. The user has the option to navigate to the original article via the New York Times or add this article to their favorites!
 
 <p align="center">
-  <img src="https://imgur.com/GzHtxQR" alt="animated" />
+  <img src="https://i.imgur.com/GzHtxQR.png" alt="Pressfeed homescreen displaying feed/articles" />
 </p>
 
 - Radio Buttons: "Feed" and "Favorites" radio buttons allow the user to choose whether the feed should render current news articles or articles that they added to their favorites
 
 <p align="center">
-  <img src="https://imgur.com/TUVQgYz" alt="animated" />
+  <img src="https://i.imgur.com/TUVQgYz.png" alt="Pressfeed favorite section" />
 </p>
 
 <hr/>
