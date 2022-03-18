@@ -1,6 +1,6 @@
 import {Drawer, Typography, List, ListItemText, ListItemIcon, ListItemButton} from "@mui/material";
 import React, {useState} from "react";
-import menuItems from "../constants/constants";
+import {menuItems} from "../constants/constants";
 import {useStyles} from "../styles/styles";
 
 const Menu: React.FC<any> = ({handleUpdateFeed}) => {
