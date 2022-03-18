@@ -14,8 +14,8 @@ import {
 
 import {useStyles} from "../styles/styles";
 
-const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions }: any) => {
-  const [checked, setChecked] = useState(false);
+const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions, favorites }: any) => {
+  const [checked, setChecked] = useState(favorites.includes(article.short_url));
   const [articleId, setArticleId] = useState('');
 
 
@@ -37,7 +37,6 @@ const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions
   const caption: string = article.multimedia !== null ? article.multimedia[0].caption : "cannot load caption";
 
   const checkboxLabel = { inputProps: { 'aria-label': 'Add-article-to-favorites checkbox' } };
-
 
   return (
     <Grid item xs="auto">
@@ -62,7 +61,7 @@ const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions
           <Button variant="contained" href={article.short_url} target="_blank">
             Read more...
           </Button>
-          <Checkbox {...checkboxLabel} icon={<FavoriteBorder/>} checkedIcon={<Favorite/>} style={{float: "right"}} id={article.short_url} onChange={() => {setChecked(!checked);}} onClick={(e) => {
+          <Checkbox {...checkboxLabel} icon={favorites.includes(article.short_url) ? <Favorite/> : <FavoriteBorder/>} checkedIcon={favorites.includes(article.short_url) ? <FavoriteBorder/> : <Favorite/>} style={{float: "right"}} id={article.short_url} onChange={() => {setChecked(!checked);}} onClick={(e) => {
             setArticleId((e.target as HTMLInputElement).id);
           }}/>
         </CardContent>

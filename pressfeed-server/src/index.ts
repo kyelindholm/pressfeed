@@ -32,7 +32,7 @@ app.get('/favorites', async (req, res) => {
         "title": article[1],
         "byline": article[2],
         "abstract": article[3],
-        "shorturl": article[4],
+        "short_url": article[4],
         "multimedia": [{"url": article[5], "caption": article[6]}],
         "publishdate": article[7]
       }
