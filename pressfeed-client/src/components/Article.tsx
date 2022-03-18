@@ -14,7 +14,8 @@ import {
 
 import {useStyles} from "../styles/styles";
 
-const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions, favorites }: any) => {
+const Article: React.FC<ArticleProps> = ({ article, articleFunctions, favorites }: any) => {
+  const classes = useStyles();
   const [checked, setChecked] = useState(favorites.includes(article.short_url));
   const [articleId, setArticleId] = useState('');
 
@@ -30,12 +31,9 @@ const Article: React.FC<ArticleProps> = ({ article, articleKey, articleFunctions
   })
 
   const articleDate = moment(article.published_date).format("MM/DD/YYYY");
-  const classes = useStyles();
   const byline = article.byline.length > 0 ? "| " + article.byline : "";
-
   const photo: string = article.multimedia !== null ? article.multimedia[0].url : "https://demofree.sirv.com/nope-not-here.jpg";
   const caption: string = article.multimedia !== null ? article.multimedia[0].caption : "cannot load caption";
-
   const checkboxLabel = { inputProps: { 'aria-label': 'Add-article-to-favorites checkbox' } };
 
   return (

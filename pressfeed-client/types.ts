@@ -10,7 +10,6 @@ export interface Styles {
 
 export interface ArticleProps {
   article: object,
-  key: number,
   articleFunctions: object,
   favorites: Array<any>
 }
