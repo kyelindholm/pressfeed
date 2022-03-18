@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Article from './Article';
-import {Props} from '../../types'
+import {FeedProps} from '../../types'
 import { Container, Grid } from '@mui/material'
 
 import {useStyles} from '../styles/styles';
 
 let articleKey: number = 0;
 
-const Feed: React.FC<Props> = ({articles, articleFunctions}) => {
+const Feed: React.FC<FeedProps> = ({articles, articleFunctions, favorites}) => {
   const classes = useStyles();
+  const [favoriteUrls, setFavoriteUrls] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    let newFavoriteUrls = favorites.map((favoriteArticle) => favoriteArticle.short_url);
+    setFavoriteUrls(newFavoriteUrls);
+  }, [favorites]);
 
   if (articles !== undefined && articles.length > 0) {
     return (
@@ -17,7 +23,7 @@ const Feed: React.FC<Props> = ({articles, articleFunctions}) => {
         {articles.map((article) => {
           articleKey ++;
           return (
-            <Article article={article} key={articleKey} articleFunctions={articleFunctions}/>
+            <Article article={article} key={articleKey} articleFunctions={articleFunctions} favorites={favoriteUrls}/>
           )
         })}
         </Grid>

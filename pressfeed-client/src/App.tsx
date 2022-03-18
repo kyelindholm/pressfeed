@@ -14,17 +14,17 @@ const App: React.FC = () => {
   const [favorites, setFavorites] = useState<Array<any>>([]);
   const [display, setDisplay] = useState<Array<any>>([]);
 
+  const updateFavorites = async () => {
+    const newFavorites = await getFavorites();
+    setFavorites(newFavorites);
+  }
+
   useEffect(() => {
     const getData = async () => {
       const data = await refreshFeed("Home");
       await setArticles(data.data);
       setDisplay(data.data);
     };
-
-    const updateFavorites = async () => {
-      const newFavorites = await getFavorites();
-      setFavorites(newFavorites);
-    }
     getData();
     updateFavorites();
   }, []);
@@ -64,15 +64,20 @@ const App: React.FC = () => {
 
   const articleFunctions = {
     addToFavorites: (id: string) => {
-      addToDatabase(articles.filter((article) => article.short_url === id)[0]);
+      const addFavorite = async () => {
+        await addToDatabase(articles.filter((article) => article.short_url === id)[0]);
+        updateFavorites();
+      }
+      addFavorite();
     },
     removeFromFavorites: (id: string) => {
-      removeFromDatabase(articles.filter((article) => article.short_url === id)[0]);
+      const removeFavorite = async () => {
+        await removeFromDatabase(articles.filter((article) => article.short_url === id)[0]);
+        updateFavorites();
+      }
+      removeFavorite();
     }
   }
-
-  console.log(articles);
-  console.log(favorites);
 
   return (
     <div>
@@ -81,7 +86,7 @@ const App: React.FC = () => {
       <main>
         <Menu {...newMenuProps} />
         <RadioButtons radioButtonFunctions={radioButtonFunctions}/>
-        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : display}/>
+        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : display} favorites={favorites}/>
       </main>
     </div>
   );

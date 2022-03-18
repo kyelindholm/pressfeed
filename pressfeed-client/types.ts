@@ -1,6 +1,7 @@
-export interface Props {
+export interface FeedProps {
   articles: Array<any> | void | undefined,
-  articleFunctions: object
+  articleFunctions: object,
+  favorites: Array<any>
 }
 
 export interface Styles {
@@ -10,7 +11,8 @@ export interface Styles {
 export interface ArticleProps {
   article: object,
   key: number,
-  articleFunctions: object
+  articleFunctions: object,
+  favorites: Array<any>
 }
 
 export interface AppbarProps {
