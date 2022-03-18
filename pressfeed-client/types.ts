@@ -17,4 +17,8 @@ export interface AppbarProps {
   filterFeed: any
 }
 
+export interface RadioButtonProps {
+  radioButtonFunctions: object
+}
+
 

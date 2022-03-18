@@ -3,7 +3,7 @@ import Feed from "./components/Feed";
 import Appbar from "./components/Appbar";
 import Menu from "./components/Menu";
 import RadioButtons from "./components/RadioButtons";
-import {refreshFeed, addToDatabase, removeFromDatabase} from "./api-routes/routes";
+import {refreshFeed, addToDatabase, removeFromDatabase, getFavorites} from "./api-routes/routes";
 import { CssBaseline } from "@mui/material";
 import "./styles/App.css";
 
@@ -11,13 +11,22 @@ const App: React.FC = () => {
   const [articles, setArticles] = useState<Array<any>>([]);
   const [filteredArticles, setFilteredArticles] = useState<Array<any>>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [favorites, setFavorites] = useState<Array<any>>([]);
+  const [display, setDisplay] = useState<Array<any>>([]);
 
   useEffect(() => {
     const getData = async () => {
       const data = await refreshFeed("Home");
-      setArticles(data.data);
+      await setArticles(data.data);
+      setDisplay(data.data);
     };
+
+    const updateFavorites = async () => {
+      const newFavorites = await getFavorites();
+      setFavorites(newFavorites);
+    }
     getData();
+    updateFavorites();
   }, []);
 
   const newMenuProps = {
@@ -43,6 +52,15 @@ const App: React.FC = () => {
     },
   };
 
+  const radioButtonFunctions = {
+    handleClickFeed: () => {
+      setDisplay(articles);
+    },
+    handleClickFavorites: () => {
+      setDisplay(favorites);
+    }
+  }
+
   const articleFunctions = {
     addToFavorites: (id: string) => {
       addToDatabase(articles.filter((article) => article.short_url === id)[0]);
@@ -52,14 +70,17 @@ const App: React.FC = () => {
     }
   }
 
+  console.log(articles);
+  console.log(favorites);
+
   return (
     <div>
       <CssBaseline />
       <Appbar {...feedProps} />
       <main>
         <Menu {...newMenuProps} />
-        <RadioButtons/>
-        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : articles}/>
+        <RadioButtons radioButtonFunctions={radioButtonFunctions}/>
+        <Feed articleFunctions={articleFunctions} articles={searchTerm.length >= 3 ? filteredArticles : display}/>
       </main>
     </div>
   );
