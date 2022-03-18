@@ -34,6 +34,7 @@ const App: React.FC = () => {
       refreshFeed(section)
         .then((data) => {
           setArticles(data.data);
+          setDisplay(data.data);
         })
         .catch((err) => {
           throw err;
@@ -45,7 +46,7 @@ const App: React.FC = () => {
     filterFeed: (term: string) => {
       setSearchTerm(term);
       setFilteredArticles(
-        articles.filter((article) =>
+        display.filter((article) =>
           article.title.toLowerCase().includes(term.toLowerCase())
         )
       );
