@@ -48,7 +48,7 @@ app.post('/add', (req, res) => {
 })
 
 app.post('/remove', (req, res) => {
-  removeFromDatabase(req.body.data.short_url);
+  removeFromDatabase(req.body.url);
   res.status(200).send('Success');
 })
 

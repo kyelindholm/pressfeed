@@ -70,9 +70,9 @@ const App: React.FC = () => {
       }
       addFavorite();
     },
-    removeFromFavorites: (id: string) => {
+    removeFromFavorites: (url: string) => {
       const removeFavorite = async () => {
-        await removeFromDatabase(articles.filter((article) => article.short_url === id)[0]);
+        await removeFromDatabase(url);
         updateFavorites();
       }
       removeFavorite();
