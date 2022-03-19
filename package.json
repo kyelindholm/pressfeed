@@ -7,7 +7,7 @@
     "client": "npm start --prefix pressfeed-client",
     "server": "nodemon ./pressfeed-server/src/index.ts",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "database": "psql -d expresso -f database/schema.sql",
+    "database": "psql -d pressfeed -f database/schema.sql",
     "production-start": "concurrently \"npm run server\" \"npm run production-start --prefix pressfeed-client\""
   },
   "keywords": [],
