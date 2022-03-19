@@ -111,7 +111,9 @@ An application designed to amalgamate the news. Powered by the New York Times, P
   <img src="https://i.imgur.com/AkfGPTH.png" alt="Pressfeed menu functionality" />
 </p>
 
-- Feed/Article: The "press" and "feed" in Pressfeed! News articles are rendered as individual card components within a feed. Each article card displays the article's title, a primary image, the article's byline, and a brief summary of the article. The user has the option to navigate to the original article via the New York Times or add this article to their favorites!
+- Feed/Article: The "press" and "feed" in Pressfeed! News articles are rendered as individual card components within a feed. Upon loading the application, a get request is made to Pressfeed's internal API which, in turn, calls to the New York Times' developer API. A list of articles is returned according to the 'section' passed in the request's query.
+
+  - Each article card displays the article's title, a primary image, the article's byline, and a brief summary of the article. The user has the option to navigate to the original article via the New York Times or add this article to their favorites!
 
 <p align="center">
   <img src="https://i.imgur.com/GzHtxQR.png" alt="Pressfeed homescreen displaying feed/articles" />
@@ -129,6 +131,6 @@ An application designed to amalgamate the news. Powered by the New York Times, P
 
 After making a clone of the repository, be sure to install dependencies within the root directory and the pressfeed-client directory using `npm install`
 
-Initialize database with `npm run database` from the root directory, after making a 'config.ts' file containing 'host', 'user', and 'password' parameters.
+Initialize database with `npm run database` from the root directory after making a 'config.ts' file containing 'host', 'user', and 'password' parameters.
 
 Create a production bundle with `npm build` (within pressfeed-client), and then run the project using `npm run production-start`. Navigate to http://localhost:3000 to interact with Pressfeed!
