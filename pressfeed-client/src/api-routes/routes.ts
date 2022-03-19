@@ -11,8 +11,8 @@ export const addToDatabase = async (article: object) => {
   return response;
 }
 
-export const removeFromDatabase = async (article: object) => {
-  const response = await axios.post('http://localhost:8000/remove', {data: article});
+export const removeFromDatabase = async (url: string) => {
+  const response = await axios.post('http://localhost:8000/remove', {url: url});
   return response;
 }
 
