@@ -124,3 +124,11 @@ An application designed to amalgamate the news. Powered by the New York Times, P
 </p>
 
 <hr/>
+
+## To run locally:
+
+After making a clone of the repository, be sure to install dependencies within the root directory and the pressfeed-client directory using `npm install`
+
+Initialize database with `npm run database` from the root directory, after making a 'config.ts' file containing 'host', 'user', and 'password' parameters.
+
+Create a production bundle with `npm build` (within pressfeed-client), and then run the project using `npm run production-start`. Navigate to http://localhost:3000 to interact with Pressfeed!
