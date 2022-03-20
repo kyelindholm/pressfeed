@@ -19,9 +19,6 @@ const Article: React.FC<ArticleProps> = ({ article, articleFunctions, favorites 
   const [checked, setChecked] = useState(favorites.includes(article.short_url));
   const [articleId, setArticleId] = useState('');
 
-  console.log('test', article);
-
-
   const firstUpdate = useRef(false);
   useLayoutEffect(() => {
     if (firstUpdate.current) {
@@ -33,15 +30,14 @@ const Article: React.FC<ArticleProps> = ({ article, articleFunctions, favorites 
   })
 
   const articleDate = moment(article.published_date).format("MM/DD/YYYY");
-
-  const byline = article.byline !== null && article.byline.length > 0 ? "| " + article.byline : "";
+  const byline = article.byline !== null && article.byline !== undefined && article.byline.length > 0 ? "| " + article.byline : "";
   const photo: string = article.multimedia !== null ? article.multimedia[0].url : "https://demofree.sirv.com/nope-not-here.jpg";
   const caption: string = article.multimedia !== null ? article.multimedia[0].caption : "cannot load caption";
   const checkboxLabel = { inputProps: { 'aria-label': 'Add-article-to-favorites checkbox' } };
 
   return (
     <Grid item xs="auto">
-      <Card variant="outlined" className={classes.cards}>
+      <Card variant="outlined" className={classes.cards} style={{maxWidth: "20vw"}}>
         <Typography variant="h5" style={{fontWeight: "bold", padding: "2%"}}>
           {article.title}
         </Typography>

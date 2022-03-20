@@ -16,8 +16,6 @@ const Feed: React.FC<FeedProps> = ({articles, articleFunctions, favorites}) => {
     setFavoriteUrls(newFavoriteUrls);
   }, [favorites]);
 
-  console.log(favorites);
-
   if (articles !== undefined && articles.length > 0) {
     return (
       <Container maxWidth="lg" className={classes.container}>
